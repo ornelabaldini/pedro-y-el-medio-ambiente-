@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
 [ext_resource path="res://art/planet03.png" type="Texture" id=3]
 [ext_resource path="res://art/planet07.png" type="Texture" id=4]
+[ext_resource path="res://art/go.png" type="Texture" id=5]
+[ext_resource path="res://kenney_smoke-particles/PNG/Black smoke/blackSmoke19.png" type="Texture" id=6]
+[ext_resource path="res://kenney_smoke-particles/PNG/Explosion/explosion02.png" type="Texture" id=7]
+[ext_resource path="res://kenney_smoke-particles/PNG/Black smoke/blackSmoke05.png" type="Texture" id=8]
+[ext_resource path="res://kenney_smoke-particles/PNG/Explosion/explosion01.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -25,6 +30,22 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "2",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
 "speed": 5.0
 } ]
 
@@ -78,10 +99,23 @@ wait_time = 2.0
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 240, 584 )
+position = Vector2( 236, 591 )
 scale = Vector2( 0.25, 0.178125 )
 frames = SubResource( 4 )
 animation = "1"
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 273.5, 543.229 )
+scale = Vector2( 1.77333, 1.29092 )
+frames = SubResource( 5 )
+animation = "New Anim"
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 1092, 256 )
+frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
