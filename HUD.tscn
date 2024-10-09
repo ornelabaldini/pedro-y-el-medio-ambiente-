@@ -1,14 +1,16 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
 [ext_resource path="res://art/planet03.png" type="Texture" id=3]
 [ext_resource path="res://art/planet07.png" type="Texture" id=4]
-[ext_resource path="res://art/go.png" type="Texture" id=5]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_slide.png" type="Texture" id=5]
 [ext_resource path="res://kenney_smoke-particles/PNG/Black smoke/blackSmoke19.png" type="Texture" id=6]
 [ext_resource path="res://kenney_smoke-particles/PNG/Explosion/explosion02.png" type="Texture" id=7]
 [ext_resource path="res://kenney_smoke-particles/PNG/Black smoke/blackSmoke05.png" type="Texture" id=8]
 [ext_resource path="res://kenney_smoke-particles/PNG/Explosion/explosion01.png" type="Texture" id=9]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_rope.png" type="Texture" id=10]
+[ext_resource path="res://kenney_toon-characters-1/Zombie/PNG/Poses HD/character_zombie_show.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -35,7 +37,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "New Anim",
 "speed": 5.0
@@ -44,6 +46,14 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -106,17 +116,23 @@ animation = "1"
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 273.5, 543.229 )
+position = Vector2( 206, 552 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
+frame = 1
+speed_scale = 0.2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
-position = Vector2( 1092, 256 )
+position = Vector2( 277, 296 )
 frames = SubResource( 6 )
-frame = 3
-playing = true
+frame = 1
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
+position = Vector2( 310, 520.5 )
+scale = Vector2( 0.78125, 0.832031 )
+frames = SubResource( 7 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
