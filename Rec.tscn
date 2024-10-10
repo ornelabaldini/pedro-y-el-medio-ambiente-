@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://art/botellaa.png" type="Texture" id=1]
+[ext_resource path="res://art/lata2.png" type="Texture" id=2]
+[ext_resource path="res://art/lata.png" type="Texture" id=3]
+[ext_resource path="res://cartonn.png" type="Texture" id=4]
+[ext_resource path="res://art/carton2.png" type="Texture" id=5]
+[ext_resource path="res://Rec.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "swim",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19.5, 19 )
+
+[node name="RigidBody2D" type="RigidBody2D"]
+physics_interpolation_mode = 2
+use_parent_material = true
+mode = 2
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["Carton"]]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "walk"
+playing = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." groups=["Carton"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Carton"]]
+position = Vector2( -0.5, 9 )
+shape = SubResource( 2 )
+
+[connection signal="hit" from="." to="." method="_on_RigidBody2D_hit"]
+[connection signal="input_event" from="." to="." method="_on_RigidBody2D_input_event"]
