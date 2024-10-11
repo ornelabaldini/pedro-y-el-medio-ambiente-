@@ -1,5 +1,4 @@
 extends RigidBody2D
-signal hit
 
 func _ready():
 	$AnimatedSprite.playing = true

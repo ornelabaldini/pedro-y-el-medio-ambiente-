@@ -1,6 +1,6 @@
 extends CanvasLayer
-
 signal start_game
+
 
 func show_message(text):
 	$Message.text = text
@@ -9,6 +9,7 @@ func show_message(text):
 	$AnimatedSprite2.hide()
 	$AnimatedSprite3.hide()
 	$AnimatedSprite4.hide()
+	
 func show_game_over():
 	show_message(  "Perdiste")
 	$AnimatedSprite2.show()
@@ -28,7 +29,6 @@ func show_game_over():
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
-
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$AnimatedSprite2.hide()
@@ -41,4 +41,6 @@ func _on_MessageTimer_timeout():
 	$StartButton.hide()
 	$AnimatedSprite2.hide()
 	$AnimatedSprite3.hide()
+
+
 

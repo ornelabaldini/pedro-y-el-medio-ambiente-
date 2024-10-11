@@ -20,16 +20,16 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 28.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["Player"]]
 position = Vector2( 0, 2 )
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["Player"]]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "arriba"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2( -1, -2 )
 shape = SubResource( 2 )
 __meta__ = {
@@ -37,3 +37,4 @@ __meta__ = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="hit" from="." to="." method="_on_Player_hit"]

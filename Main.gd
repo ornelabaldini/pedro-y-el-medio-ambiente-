@@ -2,7 +2,7 @@ extends Node
 
 export(PackedScene) var mob_scene
 export(PackedScene) var rec_scene
-var score
+var score = 0
 
 func _ready():
 	randomize()
@@ -50,25 +50,13 @@ func _on_MobTimer_timeout():
 	add_child(mob)
 
 func _on_ScoreTimer_timeout():
-	score += 1
-	$HUD.update_score(score)
+	pass
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$RecTimer.start()
 	$ScoreTimer.start()
 
-func recolectar_reciclable():
-	var reciclable_recolectado = 0
-	score += 1
-	reciclable_recolectado += 1
-	$HUD.update_score(score)
-	$RigidBody2D.hide()
-	if reciclable_recolectado == 10:
-		$music.stop()
-		$AnimatedSprite5.show()
-		$AnimatedSprite6.show()
-		$ganaste.show()
 
 func _on_RecTimer_timeout():
 	var rec = rec_scene.instance()
@@ -81,3 +69,4 @@ func _on_RecTimer_timeout():
 	var velocity2 = Vector2(rand_range(150.0, 250.0), 0.0)
 	rec.linear_velocity = velocity2.rotated(direction2)
 	add_child(rec)
+
