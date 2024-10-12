@@ -39,6 +39,7 @@ func _process(delta):
 		
 func _on_Player_body_entered(body):
 	if body.is_in_group("mobs"):
+		score = 0
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
@@ -46,11 +47,10 @@ func _on_Player_body_entered(body):
 		get_node("../HUD").update_score(score)
 		body.hide()
 		score += 1
-		if score == 100:
-			$music.stop()
-			$AnimatedSprite5.show()
-			$AnimatedSprite6.show()
-			$ganaste.show()
+		if score == 5:
+			body.hide()
+			$HUD.show_ganaste()
+
 		
 func start(pos):
 	position = pos

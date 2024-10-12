@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://kenney_smoke-particles/PNG/Explosion/explosion01.png" type="Texture" id=9]
 [ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_rope.png" type="Texture" id=10]
 [ext_resource path="res://kenney_toon-characters-1/Zombie/PNG/Poses HD/character_zombie_show.png" type="Texture" id=11]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_attackKick.png" type="Texture" id=12]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_attack0.png" type="Texture" id=13]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_attack1.png" type="Texture" id=14]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_attack2.png" type="Texture" id=15]
+[ext_resource path="res://kenney_toon-characters-1/Male person/PNG/Poses/character_malePerson_cheer1.png" type="Texture" id=16]
+[ext_resource path="res://art/f2.png" type="Texture" id=17]
+[ext_resource path="res://art/flechita.png" type="Texture" id=18]
+[ext_resource path="res://art/f4.png" type="Texture" id=19]
+[ext_resource path="res://art/f3.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -59,6 +68,41 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="GDScript" id=10]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+script = SubResource( 10 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
@@ -88,51 +132,108 @@ text = "   Pedro
 y el medio
 ambiente"
 
-[node name="StartButton" type="Button" parent="."]
+[node name="Message2" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 230.0
+margin_top = 151.0
+margin_right = 599.0
+margin_bottom = 251.0
+custom_colors/font_color = Color( 0.490196, 1, 0.298039, 1 )
+custom_colors/font_outline_modulate = Color( 0.00392157, 0.0745098, 0.00784314, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GANASTE!"
+
+[node name="Message3" type="Label" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.2
+anchor_bottom = 0.2
+margin_left = 69.0
+margin_top = 365.0
+margin_right = 614.0
+margin_bottom = 443.0
+custom_colors/font_color = Color( 0, 0.615686, 0.643137, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0117647, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Usa las flechitas"
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.05
+anchor_top = 1.0
+anchor_right = 0.6
 anchor_bottom = 1.0
-margin_left = -155.0
-margin_top = -208.0
-margin_right = 150.0
-margin_bottom = -124.0
+margin_left = 137.5
+margin_top = -121.0
+margin_right = 357.0
+margin_bottom = -37.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.282353, 1, 0.286275, 1 )
 custom_fonts/font = SubResource( 1 )
 shortcut = SubResource( 3 )
-text = "Empezar"
+text = "hace click acá o apretá enter"
 
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 236, 591 )
+position = Vector2( 659, 404 )
 scale = Vector2( 0.25, 0.178125 )
 frames = SubResource( 4 )
 animation = "1"
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 206, 552 )
+position = Vector2( 623, 366 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
-frame = 1
 speed_scale = 0.2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
-position = Vector2( 277, 296 )
+position = Vector2( 648, 137 )
 frames = SubResource( 6 )
 frame = 1
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
-position = Vector2( 310, 520.5 )
+position = Vector2( 744, 325 )
 scale = Vector2( 0.78125, 0.832031 )
 frames = SubResource( 7 )
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
+position = Vector2( 671, 206 )
+scale = Vector2( 2.57773, 2.49575 )
+frames = SubResource( 8 )
+animation = "New Anim"
+frame = 1
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
+position = Vector2( 1052, 232 )
+scale = Vector2( 0.573047, 0.433594 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
+position = Vector2( 954, 548 )
+scale = Vector2( 2.75, 2.39815 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
+position = Vector2( 224, 434 )
+scale = Vector2( 0.287891, 0.243359 )
+frames = SubResource( 12 )
+playing = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

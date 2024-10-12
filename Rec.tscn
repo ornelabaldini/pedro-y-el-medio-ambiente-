@@ -3,30 +3,30 @@
 [ext_resource path="res://art/botellaa.png" type="Texture" id=1]
 [ext_resource path="res://art/lata2.png" type="Texture" id=2]
 [ext_resource path="res://art/lata.png" type="Texture" id=3]
-[ext_resource path="res://cartonn.png" type="Texture" id=4]
+[ext_resource path="res://art/carton1.png" type="Texture" id=4]
 [ext_resource path="res://art/carton2.png" type="Texture" id=5]
 [ext_resource path="res://Rec.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "botella",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "fly",
-"speed": 3.0
+"name": "carton",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "swim",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "walk",
-"speed": 3.0
+"name": "lata",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21, 27 )
+extents = Vector2( 13, 12 )
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["rec"]]
 physics_interpolation_mode = 2
@@ -39,10 +39,12 @@ script = ExtResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["rec"]]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "walk"
+animation = "lata"
 playing = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." groups=["rec"]]
+position = Vector2( 1, 0.5 )
+scale = Vector2( 1.2, 1.45 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["rec"]]
 position = Vector2( 1, 1 )
