@@ -44,12 +44,25 @@ func _on_Player_body_entered(body):
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
 	elif body.is_in_group("rec"):
+		score += 1
 		get_node("../HUD").update_score(score)
 		body.hide()
-		score += 1
 		if score == 5:
 			body.hide()
-			$HUD.show_ganaste()
+			emit_signal("hit")
+			$CollisionShape2D.set_deferred("disabled", true)
+			$AnimatedSprite5.show()
+			$AnimatedSprite6.show()
+			$Message3.hide()
+			yield($MessageTimer, "timeout")
+			$Message.text = "Recolecta 15\n reciclables para ganar!\n Cuidado con los\n  zombies..."
+			$Message.show()
+			$Message3.hide()
+			yield(get_tree().create_timer(1), "timeout")
+			$StartButton.show()
+			$Message2.show()	
+	
+			
 
 		
 func start(pos):

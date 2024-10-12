@@ -15,17 +15,7 @@ func show_message(text):
 	$Message2.hide()
 	$Message3.show()
 
-func show_ganaste():
-	$AnimatedSprite5.show()
-	$AnimatedSprite6.show()
-	$Message3.hide()
-	yield($MessageTimer, "timeout")
-	$Message.text = "Recolecta 15\n reciclables para ganar!\n Cuidado con los\n  zombies..."
-	$Message.show()
-	$Message3.hide()
-	yield(get_tree().create_timer(1), "timeout")
-	$StartButton.show()
-	$Message2.show()	
+
 			
 func show_game_over():
 	show_message("                Perdiste")
