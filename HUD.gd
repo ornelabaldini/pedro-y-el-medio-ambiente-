@@ -1,7 +1,6 @@
 extends CanvasLayer
 signal start_game
 
-
 func show_message(text):
 	$Message.text = text
 	$Message.show()
@@ -14,9 +13,9 @@ func show_message(text):
 	$AnimatedSprite6.hide()
 	$Message2.hide()
 	$Message3.show()
+	$jugar_de_nuevo.hide()
 
 
-			
 func show_game_over():
 	show_message("                Perdiste")
 	$AnimatedSprite2.show()
@@ -30,6 +29,7 @@ func show_game_over():
 	$Message3.hide()
 	yield(get_tree().create_timer(1), "timeout")
 	$StartButton.show()
+	$jugar_de_nuevo.hide()
 	$AnimatedSprite4.hide()
 	
 	
@@ -38,6 +38,7 @@ func update_score(score):
 
 func _on_StartButton_pressed():
 	$StartButton.hide()
+	$jugar_de_nuevo.hide()
 	$AnimatedSprite2.hide()
 	$AnimatedSprite4.hide()
 	$AnimatedSprite8.hide()
@@ -47,12 +48,26 @@ func _on_MessageTimer_timeout():
 	$Message.hide()
 	$AnimatedSprite.hide()
 	$StartButton.hide()
+	$jugar_de_nuevo.hide()
 	$AnimatedSprite2.hide()
 	$AnimatedSprite3.hide()
 	$AnimatedSprite7.hide()
 	$AnimatedSprite8.hide()
 	$Message3.hide()
+	$jugar_de_nuevo.hide()
 	
-
-
-
+func ganaste():
+	$jugar_de_nuevo.show()
+	$AnimatedSprite5.show()
+	$AnimatedSprite6.show()
+	$Message2.show()
+	$ScoreLabel.hide()
+	
+func _on_jugar_de_nuevo_pressed():
+	$jugar_de_nuevo.hide()
+	$StartButton.hide()
+	$AnimatedSprite2.hide()
+	$AnimatedSprite4.hide()
+	$AnimatedSprite8.hide()
+	emit_signal("start_game")
+	

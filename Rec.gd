@@ -16,4 +16,9 @@ func recolectar_reciclable():
 func _on_RigidBody2D_hit(body):
 	if body.is_in_group("Player"):
 		recolectar_reciclable()
-
+		
+func ocultar():
+	$AnimatedSprite.playing = false
+	$AnimatedSprite.hide()
+	
+	

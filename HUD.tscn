@@ -137,10 +137,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 230.0
-margin_top = 151.0
-margin_right = 599.0
-margin_bottom = 251.0
+margin_left = -175.0
+margin_top = 119.0
+margin_right = 194.0
+margin_bottom = 219.0
 custom_colors/font_color = Color( 0.490196, 1, 0.298039, 1 )
 custom_colors/font_outline_modulate = Color( 0.00392157, 0.0745098, 0.00784314, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -178,6 +178,22 @@ custom_fonts/font = SubResource( 1 )
 shortcut = SubResource( 3 )
 text = "hace click acá o apretá enter"
 
+[node name="jugar_de_nuevo" type="Button" parent="."]
+anchor_left = 0.05
+anchor_top = 1.0
+anchor_right = 0.6
+anchor_bottom = 1.0
+margin_left = 137.5
+margin_top = -121.0
+margin_right = 357.0
+margin_bottom = -37.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.282353, 1, 0.286275, 1 )
+custom_fonts/font = SubResource( 1 )
+shortcut = SubResource( 3 )
+text = "Jugar de nuevo"
+
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -194,7 +210,6 @@ position = Vector2( 623, 366 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
-frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -209,15 +224,15 @@ scale = Vector2( 0.78125, 0.832031 )
 frames = SubResource( 7 )
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
-position = Vector2( 671, 206 )
+position = Vector2( 268, 251 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
-frame = 1
+frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
-position = Vector2( 1052, 232 )
+position = Vector2( 669, 247 )
 scale = Vector2( 0.573047, 0.433594 )
 frames = SubResource( 9 )
 playing = true
@@ -226,7 +241,6 @@ playing = true
 position = Vector2( 954, 548 )
 scale = Vector2( 2.75, 2.39815 )
 frames = SubResource( 11 )
-frame = 2
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
@@ -237,4 +251,6 @@ frame = 1
 playing = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
