@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/error_007.ogg-10c71802ae8eb6c6e69e2060476c7d5d.oggstr"
+
+[deps]
+
+source_file="res://kenney_interface-sounds/Audio/error_007.ogg"
+dest_files=[ "res://.import/error_007.ogg-10c71802ae8eb6c6e69e2060476c7d5d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

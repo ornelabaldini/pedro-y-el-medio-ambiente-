@@ -12,7 +12,6 @@ func show_message(text):
 	$AnimatedSprite5.hide()
 	$AnimatedSprite6.hide()
 	$Message2.hide()
-	$Message3.show()
 	$jugar_de_nuevo.hide()
 
 
@@ -33,6 +32,7 @@ func show_game_over():
 	$AnimatedSprite4.hide()
 	
 	
+	
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
@@ -42,6 +42,8 @@ func _on_StartButton_pressed():
 	$AnimatedSprite2.hide()
 	$AnimatedSprite4.hide()
 	$AnimatedSprite8.hide()
+	$AnimatedSprite7.hide()
+	$Message3.hide()
 	emit_signal("start_game")
 
 func _on_MessageTimer_timeout():
@@ -62,12 +64,16 @@ func ganaste():
 	$AnimatedSprite6.show()
 	$Message2.show()
 	$ScoreLabel.hide()
-	
+	$Message3.hide()
+	get_node("/root/Main").parar_musica()
+	$ganaste.play()
+	yield(get_tree().create_timer(0.7), "timeout")
+	$ganaste.stop()
+
+
 func _on_jugar_de_nuevo_pressed():
-	$jugar_de_nuevo.hide()
-	$StartButton.hide()
-	$AnimatedSprite2.hide()
-	$AnimatedSprite4.hide()
-	$AnimatedSprite8.hide()
-	emit_signal("start_game")
-	
+	_on_StartButton_pressed()
+	$ScoreLabel.show()
+	$ganaste.stop()
+
+

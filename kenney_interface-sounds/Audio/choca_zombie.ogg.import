@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/choca_zombie.ogg-f264c7f2f6560b4db2b7c20a427dc813.oggstr"
+
+[deps]
+
+source_file="res://kenney_interface-sounds/Audio/choca_zombie.ogg"
+dest_files=[ "res://.import/choca_zombie.ogg-f264c7f2f6560b4db2b7c20a427dc813.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

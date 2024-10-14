@@ -37,21 +37,26 @@ func _process(delta):
 		$AnimatedSprite.animation = "arriba"
 		$AnimatedSprite.flip_v = velocity.y > 0
 		
+
 func _on_Player_body_entered(body):
 	if body.is_in_group("mobs"):
 		score = 0
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
-	elif body.is_in_group("rec"):
+	if body.is_in_group("rec"): 
 		score += 1
 		get_node("../HUD").update_score(score)
 		body.hide()
-		if score == 15:
+		$recolecta.play()
+		yield(get_tree().create_timer(0.5), "timeout")
+		$recolecta.stop()
+		if score == 1:
 			get_node("../HUD").ganaste()
 			$CollisionShape2D.set_deferred("disabled", true)
+
 	
-			
+
 func start(pos):
 	position = pos
 	show()

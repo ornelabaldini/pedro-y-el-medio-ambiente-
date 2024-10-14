@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://art/flechita.png" type="Texture" id=18]
 [ext_resource path="res://art/f4.png" type="Texture" id=19]
 [ext_resource path="res://art/f3.png" type="Texture" id=20]
+[ext_resource path="res://kenney_music-jingles/Audio/Steel jingles/jingles_STEEL16.ogg" type="AudioStream" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -228,7 +229,7 @@ position = Vector2( 268, 251 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
-frame = 4
+frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
@@ -250,7 +251,10 @@ frames = SubResource( 12 )
 frame = 1
 playing = true
 
+[node name="ganaste" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
+[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
