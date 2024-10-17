@@ -211,6 +211,7 @@ position = Vector2( 623, 366 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
+frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -229,7 +230,7 @@ position = Vector2( 268, 251 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
@@ -242,6 +243,7 @@ playing = true
 position = Vector2( 954, 548 )
 scale = Vector2( 2.75, 2.39815 )
 frames = SubResource( 11 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
@@ -255,6 +257,6 @@ playing = true
 stream = ExtResource( 21 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
 [connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="jugar_de_nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

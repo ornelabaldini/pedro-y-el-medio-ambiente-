@@ -44,19 +44,20 @@ func _on_StartButton_pressed():
 	$AnimatedSprite8.hide()
 	$AnimatedSprite7.hide()
 	$Message3.hide()
+	get_parent().new_game()
 	emit_signal("start_game")
+	
 
 func _on_MessageTimer_timeout():
 	$Message.hide()
 	$AnimatedSprite.hide()
 	$StartButton.hide()
-	$jugar_de_nuevo.hide()
 	$AnimatedSprite2.hide()
 	$AnimatedSprite3.hide()
 	$AnimatedSprite7.hide()
 	$AnimatedSprite8.hide()
 	$Message3.hide()
-	$jugar_de_nuevo.hide()
+	#$jugar_de_nuevo.hide()
 	
 func ganaste():
 	$jugar_de_nuevo.show()

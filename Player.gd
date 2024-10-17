@@ -54,6 +54,7 @@ func _on_Player_body_entered(body):
 		if score == 1:
 			get_node("../HUD").ganaste()
 			$CollisionShape2D.set_deferred("disabled", true)
+			score = 0
 
 	
 

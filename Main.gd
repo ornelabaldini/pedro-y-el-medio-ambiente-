@@ -2,7 +2,6 @@ extends Node
 
 export(PackedScene) var mob_scene
 export(PackedScene) var rec_scene
-var score = 0
 
 func _ready():
 	randomize()
@@ -20,10 +19,10 @@ func parar_musica():
 	$Music.stop()
 	
 func new_game():
-	score = 0
+	print("newGame")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-	$HUD.update_score(score)
+	$HUD.update_score($Player.score)
 	$HUD.show_message("Recolecta 15\n reciclables!\n Cuidado con los\n  zombies...")
 	get_tree().call_group("mobs", "queue_free")
 	$Music.play()
