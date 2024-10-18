@@ -15,11 +15,16 @@ func game_over():
 	$Music.stop()
 	$DeathSound.play()
 	$MobPath.hide()
-	
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("rec", "queue_free")
 
 func parar_musica():
+	$MobTimer.stop()
+	$RecTimer.stop()
 	$Music.stop()
-	
+	$ScoreTimer.stop()
+	$Player.hide()
+	$Player.start($StartPosition.position)
 	
 func new_game():
 	$Player.start($StartPosition.position)

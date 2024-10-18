@@ -211,6 +211,7 @@ position = Vector2( 623, 366 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
+frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -225,11 +226,10 @@ scale = Vector2( 0.78125, 0.832031 )
 frames = SubResource( 7 )
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
-position = Vector2( 268, 251 )
+position = Vector2( 242, 230 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
-frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
@@ -243,7 +243,7 @@ playing = true
 position = Vector2( 954, 548 )
 scale = Vector2( 2.75, 2.39815 )
 frames = SubResource( 11 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]

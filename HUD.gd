@@ -69,6 +69,9 @@ func ganaste():
 	$ganaste.play()
 	yield(get_tree().create_timer(0.7), "timeout")
 	$ganaste.stop()
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("rec", "queue_free")
+	
 
 
 func _on_jugar_de_nuevo_pressed():
