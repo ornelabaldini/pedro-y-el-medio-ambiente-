@@ -211,7 +211,6 @@ position = Vector2( 623, 366 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
-frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -234,23 +233,23 @@ frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
-position = Vector2( 669, 247 )
+position = Vector2( 676, 269 )
 scale = Vector2( 0.573047, 0.433594 )
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
 position = Vector2( 954, 548 )
 scale = Vector2( 2.75, 2.39815 )
 frames = SubResource( 11 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
 position = Vector2( 224, 434 )
 scale = Vector2( 0.287891, 0.243359 )
 frames = SubResource( 12 )
-frame = 1
 playing = true
 
 [node name="ganaste" type="AudioStreamPlayer2D" parent="."]

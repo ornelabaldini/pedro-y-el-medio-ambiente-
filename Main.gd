@@ -14,17 +14,20 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	$MobPath.hide()
 	
+
 func parar_musica():
 	$Music.stop()
 	
+	
 func new_game():
-	print("newGame")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score($Player.score)
 	$HUD.show_message("Recolecta 15\n reciclables!\n Cuidado con los\n  zombies...")
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("rec", "queue_free")
 	$Music.play()
 
 func _on_MobTimer_timeout():

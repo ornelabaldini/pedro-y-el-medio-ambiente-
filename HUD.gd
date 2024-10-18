@@ -31,8 +31,7 @@ func show_game_over():
 	$jugar_de_nuevo.hide()
 	$AnimatedSprite4.hide()
 	
-	
-	
+
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
@@ -47,6 +46,7 @@ func _on_StartButton_pressed():
 	get_parent().new_game()
 	emit_signal("start_game")
 	
+	
 
 func _on_MessageTimer_timeout():
 	$Message.hide()
@@ -57,7 +57,6 @@ func _on_MessageTimer_timeout():
 	$AnimatedSprite7.hide()
 	$AnimatedSprite8.hide()
 	$Message3.hide()
-	#$jugar_de_nuevo.hide()
 	
 func ganaste():
 	$jugar_de_nuevo.show()
