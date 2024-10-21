@@ -55,6 +55,7 @@ func _on_Player_body_entered(body):
 			get_node("../HUD").ganaste()
 			$CollisionShape2D.set_deferred("disabled", true)
 			score = 0
+			$AnimatedSprite.hide()
 		
 
 func start(pos):

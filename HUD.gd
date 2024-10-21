@@ -13,6 +13,8 @@ func show_message(text):
 	$AnimatedSprite6.hide()
 	$Message2.hide()
 	$jugar_de_nuevo.hide()
+	$Message4.hide()
+	$salir.show()
 
 
 func show_game_over():
@@ -30,6 +32,8 @@ func show_game_over():
 	$StartButton.show()
 	$jugar_de_nuevo.hide()
 	$AnimatedSprite4.hide()
+	$Message4.hide()
+	$salir.show()
 	
 
 func update_score(score):
@@ -38,6 +42,7 @@ func update_score(score):
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$jugar_de_nuevo.hide()
+	$AnimatedSprite.hide()
 	$AnimatedSprite2.hide()
 	$AnimatedSprite4.hide()
 	$AnimatedSprite8.hide()
@@ -45,6 +50,7 @@ func _on_StartButton_pressed():
 	$Message3.hide()
 	get_parent().new_game()
 	emit_signal("start_game")
+	$salir.hide()
 	
 	
 
@@ -57,6 +63,8 @@ func _on_MessageTimer_timeout():
 	$AnimatedSprite7.hide()
 	$AnimatedSprite8.hide()
 	$Message3.hide()
+	$salir.show()
+	$AnimatedSprite.hide()
 	
 func ganaste():
 	$jugar_de_nuevo.show()
@@ -71,6 +79,8 @@ func ganaste():
 	$ganaste.stop()
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("rec", "queue_free")
+	$salir.show()
+	
 	
 
 
@@ -78,5 +88,14 @@ func _on_jugar_de_nuevo_pressed():
 	_on_StartButton_pressed()
 	$ScoreLabel.show()
 	$ganaste.stop()
+	$AnimatedSprite.show()
 
 
+func _on_salir_pressed():
+	$Message4.show()
+	$Message.hide()
+	$ScoreLabel.hide()
+	$AnimatedSprite.hide()
+	yield(get_tree().create_timer(2.0), "timeout")
+	get_tree().quit()
+	
