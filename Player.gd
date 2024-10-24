@@ -1,7 +1,7 @@
 extends Area2D
 signal hit
-export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+export var speed = 400 
+var screen_size 
 var score = 0
 var HUD_scene
 
@@ -44,20 +44,21 @@ func _on_Player_body_entered(body):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
+		
 	if body.is_in_group("rec"): 
 		score += 1
 		get_node("../HUD").update_score(score)
-		body.hide()
+		body.queue_free()
 		$recolecta.play()
 		yield(get_tree().create_timer(0.5), "timeout")
 		$recolecta.stop()
-		if score == 1:
+		if score == 15:
 			get_node("../HUD").ganaste()
 			$CollisionShape2D.set_deferred("disabled", true)
 			score = 0
-			$AnimatedSprite.hide()
-		
-
+			hide()
+	
+			
 func start(pos):
 	position = pos
 	show()

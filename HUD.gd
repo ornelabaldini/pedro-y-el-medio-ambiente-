@@ -1,7 +1,7 @@
 extends CanvasLayer
-signal start_game
 
 func show_message(text):
+	$StartButton.hide()
 	$Message.text = text
 	$Message.show()
 	$MessageTimer.start()
@@ -17,44 +17,32 @@ func show_message(text):
 	$salir.show()
 
 
-func show_game_over():
-	show_message("                Perdiste")
+func show_game_over(): 
+	show_message("Puntaje:↑  \n\n                     Buen puntaje ")
+	$jugar_de_nuevo.show()
 	$AnimatedSprite2.show()
 	$AnimatedSprite3.show()
 	$AnimatedSprite4.show()
 	$AnimatedSprite.show()
-	$Message3.hide()
-	yield($MessageTimer, "timeout")
-	$Message.text = "Recolecta 15\n reciclables para ganar!\n Cuidado con los\n  zombies..."
-	$Message.show()
-	$Message3.hide()
-	yield(get_tree().create_timer(1), "timeout")
-	$StartButton.show()
-	$jugar_de_nuevo.hide()
-	$AnimatedSprite4.hide()
-	$Message4.hide()
 	$salir.show()
-	
+	yield(get_tree().create_timer(3), "timeout")
+	$AnimatedSprite4.hide()
+	$Message.show()
+	$AnimatedSprite8.show()
+	$AnimatedSprite5.show()
 
+		
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
+
 func _on_StartButton_pressed():
 	$StartButton.hide()
-	$jugar_de_nuevo.hide()
-	$AnimatedSprite.hide()
-	$AnimatedSprite2.hide()
-	$AnimatedSprite4.hide()
-	$AnimatedSprite8.hide()
-	$AnimatedSprite7.hide()
-	$Message3.hide()
 	get_parent().new_game()
-	emit_signal("start_game")
-	$salir.hide()
-	
-	
+
 
 func _on_MessageTimer_timeout():
+	$StartButton.hide()
 	$Message.hide()
 	$AnimatedSprite.hide()
 	$StartButton.hide()
@@ -66,12 +54,13 @@ func _on_MessageTimer_timeout():
 	$salir.show()
 	$AnimatedSprite.hide()
 	
+	
 func ganaste():
+	show_message("Puntaje:↑")
 	$jugar_de_nuevo.show()
 	$AnimatedSprite5.show()
 	$AnimatedSprite6.show()
 	$Message2.show()
-	$ScoreLabel.hide()
 	$Message3.hide()
 	get_node("/root/Main").parar_musica()
 	$ganaste.play()
@@ -80,22 +69,43 @@ func ganaste():
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("rec", "queue_free")
 	$salir.show()
-	
-	
 
+
+func new_game():
+	$Player.start($StartPosition.position)
+	$StartTimer.start()
+	$StartButton.hide()
+	$HUD.update_score($Player.score)
+	$HUD.show_message("Recolecta los\n reciclables!\n Cuidado con los\n  zombies...")
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("rec", "queue_free")
+	$Music.play()
+	
 
 func _on_jugar_de_nuevo_pressed():
 	_on_StartButton_pressed()
-	$ScoreLabel.show()
-	$ganaste.stop()
-	$AnimatedSprite.show()
 
 
-func _on_salir_pressed():
-	$Message4.show()
+func ocultar_menu_principal():
+	$StartButton.hide()
+	$jugar_de_nuevo.hide()
+	$Message2.hide()
+	$Message3.hide()
 	$Message.hide()
 	$ScoreLabel.hide()
 	$AnimatedSprite.hide()
-	yield(get_tree().create_timer(2.0), "timeout")
-	get_tree().quit()
+	$AnimatedSprite2.hide()
+	$AnimatedSprite3.hide()
+	$AnimatedSprite4.hide()
+	$AnimatedSprite5.hide()
+	$AnimatedSprite7.hide()
+	$AnimatedSprite6.hide()
+	$AnimatedSprite8.hide()
+	get_parent().get_child(0).queue_free()
 	
+
+func _on_salir_pressed():
+	ocultar_menu_principal()
+	$Message4.show()
+	yield(get_tree().create_timer(3.0), "timeout")
+	get_tree().quit()

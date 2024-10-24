@@ -1,24 +1,23 @@
 extends RigidBody2D
-var score
+
+var timer = 2
+var probabilidad = 0.5
+
 
 func _ready():
 	$AnimatedSprite.playing = true
 	var rec_types = $AnimatedSprite.frames.get_animation_names()
 	$AnimatedSprite.animation = rec_types[randi() % rec_types.size()]
+
+
+func _process(delta):
+	timer -= delta
+	if timer <= 0:
+		if randf() < probabilidad:
+			# Código para aparecer objeto
+			pass
+		timer = 2
+
 	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-
-func recolectar_reciclable():
-	queue_free()
-	get_node("../Main").recolectar_reciclable()
-		
-func _on_RigidBody2D_hit(body):
-	if body.is_in_group("Player"):
-		recolectar_reciclable()
-		
-func ocultar():
-	$AnimatedSprite.playing = false
-	$AnimatedSprite.hide()
-	
-	
