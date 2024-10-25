@@ -138,10 +138,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = 119.0
-margin_right = 194.0
-margin_bottom = 219.0
+margin_left = -673.0
+margin_top = -356.0
+margin_right = -304.0
+margin_bottom = -256.0
 custom_colors/font_color = Color( 0.490196, 1, 0.298039, 1 )
 custom_colors/font_outline_modulate = Color( 0.00392157, 0.0745098, 0.00784314, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -217,7 +217,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 668, 476 )
+position = Vector2( 690, 430 )
 scale = Vector2( 0.25, 0.178125 )
 frames = SubResource( 4 )
 animation = "1"
@@ -228,6 +228,7 @@ position = Vector2( 629, 412 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
+frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -243,15 +244,16 @@ scale = Vector2( 0.78125, 0.832031 )
 frames = SubResource( 7 )
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
-position = Vector2( 234, 249 )
+position = Vector2( 1137, 410 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
-position = Vector2( 679, 334 )
-scale = Vector2( 0.418555, 0.314453 )
+position = Vector2( 1168, 133 )
+scale = Vector2( 0.250342, 0.165723 )
 frames = SubResource( 9 )
 playing = true
 

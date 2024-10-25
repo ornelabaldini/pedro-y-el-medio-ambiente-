@@ -53,6 +53,7 @@ func ganaste():
 	$AnimatedSprite6.show()
 	$Message2.show()
 	$Message3.hide()
+	$Message4.show()
 	get_node("/root/Main").parar_musica()
 	$ganaste.play()
 	yield(get_tree().create_timer(0.7), "timeout")
@@ -60,6 +61,8 @@ func ganaste():
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("rec", "queue_free")
 	$salir.show()
+
+	
 
 
 func new_game():
@@ -93,12 +96,12 @@ func ocultar_menu_principal():
 	$AnimatedSprite6.hide()
 	$AnimatedSprite8.hide()
 	get_parent().get_child(0).queue_free()
+	get_parent().get_child(7).stop()
 	
 
 func _on_salir_pressed():
-	get_parent().get_child(7).stop()
 	ocultar_menu_principal()
 	$Message4.show()
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield(get_tree().create_timer(4), "timeout")
 	get_tree().quit()
 	
