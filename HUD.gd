@@ -26,10 +26,10 @@ func show_game_over():
 	$AnimatedSprite.show()
 	$salir.show()
 	yield(get_tree().create_timer(3), "timeout")
-	$AnimatedSprite4.hide()
+	$AnimatedSprite4.show()
 	$Message.show()
-	$AnimatedSprite8.show()
-	$AnimatedSprite5.show()
+	$AnimatedSprite2.show()
+	$AnimatedSprite3.show()
 
 		
 func update_score(score):
@@ -85,6 +85,7 @@ func new_game():
 func _on_jugar_de_nuevo_pressed():
 	_on_StartButton_pressed()
 
+	
 
 func ocultar_menu_principal():
 	$StartButton.hide()

@@ -38,7 +38,7 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("rec", "queue_free")
 	$Music.play()
-	
+
 	
 func _on_MobTimer_timeout():
 	var mob = mob_scene.instance()
