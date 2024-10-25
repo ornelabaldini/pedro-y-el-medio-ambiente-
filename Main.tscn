@@ -24,7 +24,7 @@ __meta__ = {
 }
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -50,6 +50,7 @@ stream = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="RecTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="body_shape_entered" from="Player" to="Player" method="_on_Player_body_shape_entered"]
 [connection signal="hit" from="Player" to="." method="game_over"]
