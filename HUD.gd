@@ -25,13 +25,8 @@ func show_game_over():
 	$AnimatedSprite4.show()
 	$AnimatedSprite.show()
 	$salir.show()
-	yield(get_tree().create_timer(3), "timeout")
-	$AnimatedSprite4.show()
-	$Message.show()
-	$AnimatedSprite2.show()
-	$AnimatedSprite3.show()
-
-		
+	
+	
 func update_score(score):
 	$ScoreLabel.text = str(score)
 
@@ -44,15 +39,11 @@ func _on_StartButton_pressed():
 func _on_MessageTimer_timeout():
 	$StartButton.hide()
 	$Message.hide()
-	$AnimatedSprite.hide()
-	$StartButton.hide()
-	$AnimatedSprite2.hide()
-	$AnimatedSprite3.hide()
+	$AnimatedSprite5.hide()
 	$AnimatedSprite7.hide()
 	$AnimatedSprite8.hide()
 	$Message3.hide()
 	$salir.show()
-	$AnimatedSprite.hide()
 	
 	
 func ganaste():
@@ -85,7 +76,6 @@ func new_game():
 func _on_jugar_de_nuevo_pressed():
 	_on_StartButton_pressed()
 
-	
 
 func ocultar_menu_principal():
 	$StartButton.hide()
@@ -106,7 +96,9 @@ func ocultar_menu_principal():
 	
 
 func _on_salir_pressed():
+	get_parent().get_child(7).stop()
 	ocultar_menu_principal()
 	$Message4.show()
 	yield(get_tree().create_timer(3.0), "timeout")
 	get_tree().quit()
+	

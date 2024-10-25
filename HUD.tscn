@@ -148,6 +148,21 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "GANASTE!"
 
+[node name="Message3" type="Label" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.2
+anchor_bottom = 0.2
+margin_left = 69.0
+margin_top = 365.0
+margin_right = 614.0
+margin_bottom = 443.0
+custom_colors/font_color = Color( 0, 0.615686, 0.643137, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0117647, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Usa las flechitas"
+
 [node name="Message4" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -164,21 +179,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Gracias por colaborar con el reciclaje 
 y hacer de nuestro planeta
  un lugar mejor"
-
-[node name="Message3" type="Label" parent="."]
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
-margin_left = 69.0
-margin_top = 365.0
-margin_right = 614.0
-margin_bottom = 443.0
-custom_colors/font_color = Color( 0, 0.615686, 0.643137, 1 )
-custom_colors/font_outline_modulate = Color( 0.0392157, 0.0117647, 0.0823529, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Usa las flechitas"
 
 [node name="StartButton" type="Button" parent="."]
 anchor_left = 0.05
@@ -228,7 +228,6 @@ position = Vector2( 629, 412 )
 scale = Vector2( 1.77333, 1.29092 )
 frames = SubResource( 5 )
 animation = "New Anim"
-frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -248,7 +247,6 @@ position = Vector2( 234, 249 )
 scale = Vector2( 2.57773, 2.49575 )
 frames = SubResource( 8 )
 animation = "New Anim"
-frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]

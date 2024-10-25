@@ -4,7 +4,6 @@ export(PackedScene) var mob_scene
 export(PackedScene) var rec_scene
 
 func _ready():
-	
 	randomize()
 	new_game()
 

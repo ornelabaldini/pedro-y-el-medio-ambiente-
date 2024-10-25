@@ -64,4 +64,8 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 	
-#func _on_
+func _on_Player_body_shape_entered(): 
+	pass
+	
+func _on_Player_hit():
+  pass
