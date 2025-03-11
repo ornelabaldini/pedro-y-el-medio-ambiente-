@@ -16,14 +16,6 @@ Lenguaje de programación: GDScript (lenguaje nativo de Godot)
 Escenas y nodos: Se utilizan escenas dinámicas para la creación de enemigos y objetos reciclables.
 Sonidos: Efectos de sonido para los eventos de juego, como la muerte del jugador y la música de fondo.
 
-Instalación
-Cloná este repositorio a tu máquina local:
-bash
-Copiar
-git clone https://github.com/tu_usuario/tu_repositorio.git
-Abrí el proyecto en Godot Engine (aseguráte de tener instalado Godot en tu computadora).
-Ejecutá el proyecto desde el editor de Godot.
-
 ¿Cómo jugar?
 Movimiento del jugador: Usá las teclas de dirección o WASD para mover al personaje.
 Recolectá reciclables: Desplazate por el mapa y juntá los objetos reciclables.
