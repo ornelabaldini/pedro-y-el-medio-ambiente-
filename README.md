@@ -31,7 +31,5 @@ Evitá a los zombies: Los zombies aparecerán aleatoriamente en el mapa, y tendr
 
 Si deseás contribuir a este proyecto, ¡serás bienvenido! Solo abrí un pull request con tus mejoras o correcciones.
 
-Licencia
-Este proyecto está bajo la licencia MIT.
 
 
